@@ -2,19 +2,20 @@
 This repo is a PyTorch implementation of the ```optax.schedules.warmup_cosine_decay_schedule``` in Jax.
 
 ## Parameters
-```init_value``` – Initial value for the scalar to be annealed.
+**init_value** – Initial value for the scalar to be annealed.
 
-```peak_value``` – Peak value for scalar to be annealed at end of warmup.
+**peak_value** – Peak value for scalar to be annealed at end of warmup.
 
-```warmup_steps``` – Positive integer, the length of the linear warmup.
+**warmup_steps** – Positive integer, the length of the linear warmup.
 
-```decay_steps``` – Positive integer, the length of the cosine decay. Note that the total optimization steps are the sum of ```warmup_steps``` and ```decay_steps```.
+**decay_steps** – Positive integer, the length of the cosine decay. Note that the total optimization steps are the sum of ```warmup_steps``` and ```decay_steps```, which is different with ```optax.schedules.warmup_cosine_decay_schedule```.
 
-```end_value``` – End value of the scalar to be annealed. Defaults to 1e-7.
+**end_value** – End value of the scalar to be annealed. Defaults to 1e-7.
 
-```exponent``` – The default decay is 0.5 * (1 + cos(pi t/T)), where t is the current timestep and T is decay_steps. The exponent modifies this to be (0.5 * (1 + cos(pi * t/T))) ** exponent. Defaults to 1.0.
+**exponent** – The default decay is 0.5 * (1 + cos(pi t/T)), where t is the current timestep and T is decay_steps. The exponent modifies this to be (0.5 * (1 + cos(pi * t/T))) ** exponent. Defaults to 1.0.
 
-## Start
+## Quick Start
+A training template demo:
 ```
 import torch.optim as optim
 from WarmupCosineDecay import WarmupCosineDecay
@@ -34,7 +35,7 @@ for epoch in range(epochs):
     progress_bar = tqdm(Train_loader, desc=f"Epoch {epoch+1}/{epochs}", leave=True)
     for x, y in progress_bar:
         optimizer.zero_grad()
-        output = model(x, hidden)
+        output = model(x)
         loss = criterion(output, y)
         loss.backward()
         optimizer.step()
