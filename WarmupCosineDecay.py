@@ -2,7 +2,7 @@ from torch.optim.lr_scheduler import _LRScheduler
 import math
 
 class WarmupCosineDecay(_LRScheduler):
-    def __init__(self, optimizer, init_value, peak_value, warmup_steps, decay_steps, end_value=1e-9, exponent=1.0, last_epoch=-1):
+    def __init__(self, optimizer, init_value, peak_value, warmup_steps, decay_steps, end_value=1e-7, exponent=1.0, last_epoch=-1):
         self.init_value = init_value
         self.peak_value = peak_value
         self.warmup_steps = warmup_steps
