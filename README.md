@@ -1,5 +1,5 @@
 # PyTorch-WarmupCosineDecay-scheduler
-This repo is a PyTorch implementation of the [```optax.schedules.warmup_cosine_decay_schedule```](https://optax.readthedocs.io/en/latest/api/optimizer_schedules.html#optax.schedules.warmup_cosine_decay_schedule) in Jax.
+This repo is a PyTorch implementation of the [```optax.schedules.warmup_cosine_decay_schedule```](https://optax.readthedocs.io/en/latest/api/optimizer_schedules.html#optax.schedules.warmup_cosine_decay_schedule) in Jax, which contains a Linear warmup followed by cosine decay.
 
 ## Parameters
 **init_value** – Initial value for the scalar to be annealed.
