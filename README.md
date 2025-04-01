@@ -16,7 +16,9 @@ This repo is a PyTorch implementation of the ```optax.schedules.warmup_cosine_de
 
 ## Quick Start
 A training template demo:
-```
+```python
+from torch import nn
+from tqdm import tqdm
 import torch.optim as optim
 from WarmupCosineDecay import WarmupCosineDecay
 
@@ -26,7 +28,12 @@ total_steps = epochs * batchs
 warmup_rate = 0.2
 
 optimizer = optim.AdamW(model.parameters())
-scheduler = WarmupCosineDecay(optimizer, init_value=1e-6, peak_value=1e-3, warmup_steps=warmup_rate*total_steps, decay_steps=(1-warmup_rate)*total_steps)
+scheduler = WarmupCosineDecay(
+                        optimizer,
+                        init_value=1e-6,
+                        peak_value=1e-3,
+                        warmup_steps=warmup_rate*total_steps,
+                        decay_steps=(1-warmup_rate)*total_steps)
 
 criterion = nn.MSELoss() 
 for epoch in range(epochs):
