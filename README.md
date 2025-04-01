@@ -1,5 +1,5 @@
 # PyTorch-WarmupCosineDecay-scheduler
-This repo is a PyTorch implementation of the ```optax.schedules.warmup_cosine_decay_schedule``` in Jax.
+This repo is a PyTorch implementation of the [```optax.schedules.warmup_cosine_decay_schedule```](https://optax.readthedocs.io/en/latest/api/optimizer_schedules.html#optax.schedules.warmup_cosine_decay_schedule) in Jax.
 
 ## Parameters
 **init_value** – Initial value for the scalar to be annealed.
@@ -55,3 +55,7 @@ for epoch in range(epochs):
         scheduler.step()
     print(f'Epoch {epoch+1} Average Loss: {total_loss/len(Train_loader):.2e}\n')
 ```
+## Learning rate
+<div align="center">
+  <img src="https://github.com/XinyuanLiao/PyTorch-WarmupCosineDecay-scheduler/blob/main/lr.jpg" alt="Learning Rate Schedule" />
+</div>
